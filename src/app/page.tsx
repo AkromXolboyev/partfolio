@@ -1,9 +1,35 @@
 // pages/index.tsx
+"use client"
 import Header from "@/components/header";
 import Skills from "@/components/skills";
 import About from "./pages/about/page";
 import Main from "./pages/main/page";
+import { useEffect, useState } from "react";
 
+
+function MyApp({ Component, pageProps }: any) {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Initialize dark mode based on localStorage
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      setDarkMode(true);
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    if (darkMode) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+    setDarkMode(!darkMode);
+  }
+  };
 export default function Home() {
   return (
     <div className=" mx-auto w-[100vw] bg-no-repeat ">
@@ -36,4 +62,4 @@ export default function Home() {
 //       <Carousel slides={slides} />
 //     </div>
 //   );
-// }
+// 
