@@ -93,7 +93,7 @@ const Skills: React.FC = () => {
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex flex-col items-center text-center space-y-2 cursor-pointer"
+            className="flex flex-col items-center text-center space-y-2 cursor-pointer hover:bg-slate-500 rounded-xl	p-3 "
             onClick={() => window.open(skill.url, "_blank")} // Yangi tabda ochish
           >
             <img

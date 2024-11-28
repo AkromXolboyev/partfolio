@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import Skills from "@/components/skills";
 import About from "./pages/about/page";
 import Main from "./pages/main/page";
+import Footer from "@/components/footer";
 import { useEffect, useState } from "react";
 
 
@@ -41,6 +42,7 @@ export default function Home() {
           <About />
           <Skills />
           <Main />
+          <Footer/>
         </main>
       </div>
     </div>

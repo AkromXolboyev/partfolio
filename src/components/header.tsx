@@ -1,11 +1,12 @@
-// components/Header.tsx
-"use client"
+"use client";
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const Header: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     // Dark mode holatini saqlash uchun
@@ -33,7 +34,6 @@ const Header: React.FC = () => {
         {/* Logo */}
         <div className="flex items-center">
           <h1 className="text-orange-500 font-bold text-3xl">LOGO</h1>
-          {/* <Image src="/logotip.png" alt="Logo" width={60} height={60} /> */}
         </div>
 
         {/* Navigation Links */}
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
               Home
             </div>
           </Link>
-          <Link href="/about">
+          <Link href="about">
             <div className="hover:text-blue-300 transition-colors border-4 border-white dark:border-darkBlue hover:border-b-darkBlue dark:hover:border-b-white p-3 duration-300 rounded-[20] font-bold text-2xl">
               About me
             </div>
@@ -72,7 +72,6 @@ const Header: React.FC = () => {
               width={24}
               height={24}
               priority
-              className="bg-cover   background-position: center width: 100%;  height: 100vh background-size: cover;"
             />
           ) : (
             <Image
@@ -87,7 +86,10 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
-          <button className="text-white">
+          <button
+            onClick={() => setIsMenuOpen(true)}
+            className="text-white"
+          >
             <Image
               src="/menu.png"
               alt="Menu"
@@ -99,6 +101,34 @@ const Header: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Modal for Mobile Menu */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+          <div className="bg-white dark:bg-darkBlue text-black dark:text-white p-8 rounded-lg shadow-lg w-3/4 max-w-sm">
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-4 right-4 text-white bg-red-600 rounded-full p-2"
+            >
+              ✕
+            </button>
+            <nav className="flex flex-col gap-4 text-center">
+              <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                <div className="text-xl font-bold hover:text-blue-500">Home</div>
+              </Link>
+              <Link href="/main" onClick={() => setIsMenuOpen(false)}>
+                <div className="text-xl font-bold hover:text-blue-500">About Me</div>
+              </Link>
+              <Link href="/services" onClick={() => setIsMenuOpen(false)}>
+                <div className="text-xl font-bold hover:text-blue-500">Services</div>
+              </Link>
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                <div className="text-xl font-bold hover:text-blue-500">Contact</div>
+              </Link>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
