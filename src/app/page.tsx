@@ -1,13 +1,13 @@
 // pages/index.tsx
-"use client"
+"use client";
 import Header from "@/components/header";
 import Skills from "@/components/skills";
 import About from "./pages/about/page";
 import Main from "./pages/main/page";
 import Footer from "@/components/footer";
 import { useEffect, useState } from "react";
-
-
+import Service from "./service/page";
+import ContactForm from "@/components/ContactForm";
 function MyApp({ Component, pageProps }: any) {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -29,8 +29,8 @@ function MyApp({ Component, pageProps }: any) {
       localStorage.setItem("theme", "dark");
     }
     setDarkMode(!darkMode);
-  }
   };
+}
 export default function Home() {
   return (
     <div className=" mx-auto w-[100vw] bg-no-repeat ">
@@ -42,7 +42,9 @@ export default function Home() {
           <About />
           <Skills />
           <Main />
-          <Footer/>
+          <Service/>
+          <ContactForm />;
+          <Footer />
         </main>
       </div>
     </div>
@@ -64,4 +66,4 @@ export default function Home() {
 //       <Carousel slides={slides} />
 //     </div>
 //   );
-// 
+//

@@ -7,7 +7,9 @@ const About: FC = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between p-8 bg-black text-white min-h-screen space-y-10 md:space-y-0">
       {/* Matn qismi */}
+
       <div className="md:w-1/2 space-y-4 text-center md:text-left ">
+        
         <p className="text-white text-[18px] md:text-base">Hi, I am</p>
         <h1 className="text-4xl md:text-5xl font-bold text-orange-500">
           Kalbayev Akrom

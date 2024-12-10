@@ -5,12 +5,12 @@ const Footer = () => {
   return (
     <div>
       <div className="text-white">
-        <Link href="/about">
-          <p>lorem</p> {/* Linkning ichida matn yoki boshqa element bo'lishi kerak */}
-        </Link>
+        {/* <Link href="/about">
+          <p></p> {/* Linkning ichida matn yoki boshqa element bo'lishi kerak }
+        </Link> */}
       </div>
     </div>
-  );
+  )
 };
 
 export default Footer;
