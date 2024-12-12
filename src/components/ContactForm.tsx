@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     message: "",
   });
@@ -18,29 +16,31 @@ const ContactForm: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    emailjs
-      .send(
-        "YOUR_SERVICE_ID", // EmailJS-da olingan Service ID-ni kiritish
-        "YOUR_TEMPLATE_ID", // EmailJS-da olingan Template ID-ni kiritish
-        formData,
-        "YOUR_PUBLIC_KEY" // EmailJS Public Key-ni kiritish
-      )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          alert("Message sent successfully!");
-          setFormData({ name: "", email: "", phone: "", message: "" });
+    try {
+      const response = await fetch("/api/send-sms", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        (error) => {
-          console.error("FAILED...", error);
-          alert("Failed to send message. Please try again.");
-        }
-      )
-      .finally(() => setIsSubmitting(false));
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        setFormData({ name: "", phone: "", message: "" });
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error sending SMS:", error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -64,23 +64,13 @@ const ContactForm: React.FC = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-300 text-sm mb-2">Your Email *</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-600 rounded bg-gray-700 text-white"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-300 text-sm mb-2">Phone Number</label>
+          <label className="block text-gray-300 text-sm mb-2">Phone Number *</label>
           <input
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
+            required
             className="w-full px-3 py-2 border border-gray-600 rounded bg-gray-700 text-white"
           />
         </div>
@@ -99,7 +89,7 @@ const ContactForm: React.FC = () => {
           className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Sending..." : "Send message"}
+          {isSubmitting ? "Sending..." : "Send SMS"}
         </button>
       </form>
     </div>
