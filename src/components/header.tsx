@@ -30,7 +30,7 @@ const Header: React.FC = () => {
 
   return (
     <header>
-      <div className="bg-white dark:bg-darkBlue text-black dark:text-white shadow-lg p-4 flex items-center justify-between z-50 fixed w-[100%] mx-auto m-0">
+      <div className=" dark:bg-darkBlue text-black dark:text-white shadow-lg p-4 flex items-center justify-between z-50 fixed w-[100%] mx-auto m-0">
         {/* Logo */}
         <div className="flex items-center">
           <h1 className="text-orange-500 font-bold text-3xl">LOGO</h1>
