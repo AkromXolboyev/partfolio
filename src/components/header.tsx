@@ -61,7 +61,7 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Dark Mode Toggle */}
-        <button
+        {/* <button
           onClick={toggleDarkMode}
           className="p-2 rounded-full bg-gray-500 dark:bg-gray-800 dark:text-white transition"
         >
@@ -82,7 +82,7 @@ const Header: React.FC = () => {
               priority
             />
           )}
-        </button>
+        </button> */}
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">

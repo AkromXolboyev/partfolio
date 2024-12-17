@@ -43,7 +43,7 @@ export default function Home() {
           <Skills />
           <Main />
           <Service/>
-          <ContactForm />;
+          <ContactForm />
           <Footer />
         </main>
       </div>
