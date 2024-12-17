@@ -53,7 +53,7 @@ const Header: React.FC = () => {
               Services
             </div>
           </Link>
-          <Link href="/contact">
+          <Link href="contact">
             <div className="hover:text-blue-300 transition-colors border-4 border-white dark:border-darkBlue hover:border-b-darkBlue dark:hover:border-b-white p-3 duration-300 rounded-[20] font-bold text-2xl">
               Contact
             </div>
