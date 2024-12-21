@@ -146,7 +146,7 @@ const Header: React.FC = () => {
 
   return (
     <header>
-      <div className=" shadow-blue-500/50  rounded-b-3xl bg-darkBlue  text-black shadow-lg p-4 flex items-center justify-between z-50 fixed w-[100%] mx-auto m-0">
+      <div className=" shadow-blue-500/50 -z-1 rounded-b-3xl bg-darkBlue  text-black shadow-lg p-4 flex items-center justify-between  fixed w-[100%] mx-auto m-0">
         {/* Logo */}
         <div className="flex items-center">
           <h1 className="text-orange-500 font-bold text-3xl">LOGO</h1>
