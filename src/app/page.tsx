@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: any) {
 }
 export default function Home() {
   return (
-    <div className=" mx-auto w-[100vw] bg-no-repeat ">
+    <div className=" mx-auto w-[100vw] bg-no-repeat overflow-hidden">
       <div className="">
         <Header />
         <main className="bg-darkBlue min-h-screen w-screen ">
