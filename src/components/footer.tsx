@@ -15,7 +15,7 @@
 
 // export default Footer;
 
-"use client";
+// "use client";
 
 import React from "react";
 
@@ -59,7 +59,7 @@ const ContactSection = () => {
             className="cursor-pointer  hover:bg-orange-500"
           >
             📋
-            {/* <img className="bg-slate-100 w-6 " src="./copy2.png" alt="" /> */}
+           
           </button>
         </div>
       </div>
