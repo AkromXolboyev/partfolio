@@ -146,7 +146,12 @@ const Header: React.FC = () => {
 
   return (
     <header>
-      <div className=" shadow-blue-500/50  rounded-b-3xl bg-darkBlue z-50  text-black shadow-lg p-4 flex items-center justify-between  fixed w-[100%] mx-auto m-0">
+      <div
+        className="  position: sticky;
+  top: 0;
+  z-index: 1000; z-10 mb-1
+       shadow-blue-500/50  rounded-b-3xl bg-darkBlue text-black shadow-lg p-4 flex items-center justify-between  fixed w-[100%] mx-auto m-0"
+      >
         {/* Logo */}
         <div className="flex items-center">
           <h1 className="text-orange-500 font-bold text-3xl">LOGO</h1>
@@ -178,10 +183,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
-          <button
-            onClick={() => setIsMenuOpen(true)}
-            className="text-black"
-          >
+          <button onClick={() => setIsMenuOpen(true)} className="text-black">
             <Image
               src="/menu.png"
               alt="Menu"
@@ -206,16 +208,24 @@ const Header: React.FC = () => {
             </button>
             <nav className="flex flex-col gap-4 text-center">
               <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                <div className="text-xl font-bold hover:text-blue-500">Home</div>
+                <div className="text-xl font-bold hover:text-blue-500">
+                  Home
+                </div>
               </Link>
               <Link href="/main" onClick={() => setIsMenuOpen(false)}>
-                <div className="text-xl font-bold hover:text-blue-500">About Me</div>
+                <div className="text-xl font-bold hover:text-blue-500">
+                  About Me
+                </div>
               </Link>
               <Link href="/services" onClick={() => setIsMenuOpen(false)}>
-                <div className="text-xl font-bold hover:text-blue-500">Services</div>
+                <div className="text-xl font-bold hover:text-blue-500">
+                  Services
+                </div>
               </Link>
               <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                <div className="text-xl font-bold hover:text-blue-500">Contact</div>
+                <div className="text-xl font-bold hover:text-blue-500">
+                  Contact
+                </div>
               </Link>
             </nav>
           </div>
