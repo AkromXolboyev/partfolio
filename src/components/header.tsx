@@ -146,12 +146,7 @@ const Header: React.FC = () => {
 
   return (
     <header>
-      <div
-        className="  position: sticky;
-  top: 0;
-  z-index: 1000; z-10 mb-1
-       shadow-blue-500/50  rounded-b-3xl bg-darkBlue text-black shadow-lg p-4 flex items-center justify-between  fixed w-[100%] mx-auto m-0"
-      >
+      <div className=" bg-darkBlue position:fixed;top: 0; z-index: 1000; z-10 mb-1 shadow-blue-500/50  rounded-b-3xl  text-black shadow-lg p-4 flex items-center justify-between  fixed w-[100%] mx-auto m-0">
         {/* Logo */}
         <div className="flex items-center">
           <h1 className="text-orange-500 font-bold text-3xl">LOGO</h1>

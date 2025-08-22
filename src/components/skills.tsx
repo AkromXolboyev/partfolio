@@ -80,7 +80,7 @@ const skills = [
 
 const Skills: React.FC = () => {
   return (
-    <section className="skills-section py-12 container mx-auto">
+    <section className="position : relative skills-section py-12 container mx-auto">
       <div className="text-center mb-8">
         <button className="bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-semibold">
           Skills
